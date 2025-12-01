@@ -1,2 +1,2 @@
 # cortezcybertech-v2
-version mas amigable y acrde a ciberseguridad
+version mas amigable y acorde a ciberseguridad
