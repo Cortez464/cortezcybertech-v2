@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CortezCyberTech - Soporte técnico profesional y ciberseguridad en El Salvador. Protección digital avanzada para empresas y particulares.">
+    <meta name="keywords" content="soporte técnico, ciberseguridad, El Salvador, mantenimiento PC, ethical hacking, desarrollo web">
+    <meta name="author" content="Osvaldo Cortez">
+    
+    <!-- Open Graph / WhatsApp Preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="CortezCyberTech | Seguridad Digital">
+    <meta property="og:description" content="Tu Escudo Digital Confiable. Soporte técnico, ciberseguridad y desarrollo web en El Salvador.">
+    <meta property="og:image" content="https://i.ibb.co/Z05D04f/image.jpg">
+
+    <title>CortezCyberTech | Seguridad Digital</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
+                            dark: '#0f172a',
+                            light: '#1e293b',
+                            accent: '#00d4ff',
+                            secondary: '#3b82f6',
+                            success: '#10b981',
+                            purple: '#7c3aed',
+                            danger: '#ef4444'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'cursor': 'cursor .75s step-end infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        cursor: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Efectos personalizados */
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .cyber-grid {
+            background-image: linear-gradient(rgba(0, 212, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 212, 255, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        .glitch-text:hover {
+            text-shadow: 2px 0 #00d4ff, -2px 0 #ff00c1;
+        }
+
+        /* Input Date Dark Mode Fix */
+        ::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+            cursor: pointer;
+        }
+
+        /* Scroll Reveal Base Class */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00d4ff;
+        }
+    </style>
+</head>
+<body class="bg-cyber-dark text-gray-300 font-sans cyber-grid selection:bg-cyber-accent selection:text-cyber-dark">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed w-full z-50 glass-panel border-b border-white/10 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold font-mono text-white tracking-tighter hover:text-cyber-accent transition-colors">
+                        <i class="fas fa-shield-halved text-cyber-accent mr-2"></i>Cortez<span class="text-cyber-accent">CyberTech</span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#inicio" class="hover:text-cyber-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Inicio</a>
+                        <a href="#servicios" class="hover:text-cyber-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Servicios</a>
+                        <a href="#paquetes" class="hover:text-cyber-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Paquetes</a>
+                        <a href="#ejemplos" class="hover:text-cyber-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">Portafolio</a>
+                        <a href="#faq" class="hover:text-cyber-accent px-3 py-2 rounded-md text-sm font-medium transition-colors">FAQ</a>
+                        <a href="#contacto" class="bg-cyber-accent/10 text-cyber-accent border border-cyber-accent hover:bg-cyber-accent hover:text-cyber-dark px-4 py-2 rounded transition-all font-mono text-xs font-bold">
+                            <i class="fas fa-terminal mr-2"></i>CONTACT_ME
+                        </a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button onclick="toggleMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-cyber-dark border-t border-gray-700" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#inicio" onclick="toggleMenu()" class="block hover:bg-gray-800 px-3 py-2 rounded-md text-base font-medium">Inicio</a>
+                <a href="#servicios" onclick="toggleMenu()" class="block hover:bg-gray-800 px-3 py-2 rounded-md text-base font-medium">Servicios</a>
+                <a href="#ejemplos" onclick="toggleMenu()" class="block hover:bg-gray-800 px-3 py-2 rounded-md text-base font-medium">Portafolio</a>
+                <a href="#faq" onclick="toggleMenu()" class="block hover:bg-gray-800 px-3 py-2 rounded-md text-base font-medium">Preguntas</a>
+                <a href="#contacto" onclick="toggleMenu()" class="block text-cyber-accent font-bold px-3 py-2 rounded-md text-base">Contáctanos</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-screen flex items-center">
+        <!-- Abstract Decoration -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-cyber-secondary rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse-slow"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-cyber-accent rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse-slow" style="animation-delay: 2s"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
+            <div class="text-center lg:text-left lg:flex lg:items-center lg:justify-between">
+                <div class="lg:w-1/2">
+                    <div class="inline-flex items-center px-3 py-1 rounded-full border border-cyber-accent/30 bg-cyber-accent/10 text-cyber-accent text-sm font-mono mb-6 reveal">
+                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
+                        System Status: ONLINE
+                    </div>
+                    <h1 class="text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-6 glitch-text transition-all duration-300 reveal">
+                        Tu Escudo Digital <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyber-accent to-cyber-secondary">Confiable</span>
+                    </h1>
+                    
+                    <!-- TERMINAL EFFECT -->
+                    <div class="font-mono text-lg md:text-xl text-cyber-accent mb-8 h-8 reveal">
+                        <span>$</span> <span id="typing-text"></span><span class="animate-cursor">|</span>
+                    </div>
+
+                    <p class="mt-4 max-w-2xl text-xl text-gray-400 mb-8 font-light reveal">
+                        Protege tu infraestructura con estándares profesionales. Soporte técnico, ciberseguridad y desarrollo web en El Salvador.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start reveal">
+                        <a href="#contacto" class="px-8 py-4 bg-cyber-accent text-cyber-dark font-bold rounded hover:bg-white hover:shadow-[0_0_20px_rgba(0,212,255,0.5)] transition-all transform hover:-translate-y-1">
+                            Solicitar Diagnóstico
+                        </a>
+                        <a href="#servicios" class="px-8 py-4 border border-gray-600 text-white rounded hover:border-cyber-accent hover:text-cyber-accent transition-colors">
+                            Ver Servicios
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 mt-12 lg:mt-0 flex justify-center reveal">
+                    <div class="relative w-72 h-72 lg:w-96 lg:h-96 animate-float">
+                        <div class="absolute inset-0 bg-gradient-to-br from-cyber-accent to-cyber-secondary rounded-full opacity-20 blur-2xl"></div>
+                        <div class="relative z-10 text-9xl text-center text-white flex items-center justify-center h-full">
+                            <i class="fas fa-user-shield drop-shadow-[0_0_15px_rgba(0,212,255,0.5)]"></i>
+                        </div>
+                        
+                        <!-- Floating Cards -->
+                        <div class="absolute top-10 -left-10 glass-panel p-4 rounded-lg border-l-4 border-green-500 transform -rotate-6 hidden md:block backdrop-blur-md">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <div>
+                                    <p class="text-xs text-gray-400 font-mono">Firewall</p>
+                                    <p class="text-sm font-bold text-white">Activo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="nosotros" class="py-20 bg-cyber-light/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                <div class="mb-10 lg:mb-0 relative group reveal">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-cyber-accent to-blue-600 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                    <img src="https://i.ibb.co/Z05D04f/image.jpg" alt="Osvaldo Cortez" class="relative rounded-lg shadow-2xl w-full max-w-md mx-auto border border-gray-700 grayscale hover:grayscale-0 transition-all duration-500">
+                </div>
+                <div class="reveal">
+                    <h2 class="text-cyber-accent font-mono text-lg mb-2">// WHOAMI</h2>
+                    <h3 class="text-3xl font-bold text-white mb-6">Osvaldo Cortez Aguirre</h3>
+                    <div class="prose prose-invert text-gray-400">
+                        <p class="mb-4">
+                            Fundador y Técnico Principal. Estudiante de <strong class="text-white">Técnico Universitario en Ciberseguridad</strong>. Mi enfoque no es solo "arreglar computadoras", sino establecer una cultura de prevención y seguridad.
+                        </p>
+                        <ul class="space-y-3 mb-6 font-mono text-sm">
+                            <li class="flex items-start">
+                                <i class="fas fa-terminal text-cyber-accent mt-1 mr-3"></i>
+                                <span>Técnico Universitario en Ciberseguridad - ESIT (En curso)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-terminal text-cyber-accent mt-1 mr-3"></i>
+                                <span>Certificado en Ofimática y Seguridad Informática</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-terminal text-cyber-accent mt-1 mr-3"></i>
+                                <span>Análisis de Vulnerabilidades & Hardening</span>
+                            </li>
+                        </ul>
+                        <div class="mt-6 p-4 bg-black/40 border-l-4 border-cyber-accent rounded-r">
+                            <p class="italic text-gray-300">"La seguridad no es un producto, es un proceso."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="servicios" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl font-bold text-white mb-4">Vectores de Servicio</h2>
+                <div class="w-20 h-1 bg-cyber-accent mx-auto rounded"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="group glass-panel p-8 rounded-xl hover:bg-cyber-light transition-all duration-300 hover:-translate-y-2 border-t border-transparent hover:border-cyber-accent reveal">
+                    <div class="w-14 h-14 bg-blue-900/50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-cyber-accent group-hover:text-cyber-dark transition-colors">
+                        <i class="fas fa-screwdriver-wrench text-2xl text-cyber-accent group-hover:text-cyber-dark"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Soporte Técnico</h3>
+                    <p class="text-gray-400 mb-4 text-sm">Diagnóstico profundo, mantenimiento preventivo y optimización de hardware.</p>
+                    <span class="text-cyber-accent font-mono border border-cyber-accent/30 px-2 py-1 rounded text-sm">$20 - $35</span>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group glass-panel p-8 rounded-xl hover:bg-cyber-light transition-all duration-300 hover:-translate-y-2 border-t border-transparent hover:border-cyber-accent reveal">
+                    <div class="w-14 h-14 bg-blue-900/50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-cyber-accent group-hover:text-cyber-dark transition-colors">
+                        <i class="fas fa-shield-virus text-2xl text-cyber-accent group-hover:text-cyber-dark"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Seguridad Informática</h3>
+                    <p class="text-gray-400 mb-4 text-sm">Eliminación de malware, configuración de firewalls y endurecimiento del SO.</p>
+                    <span class="text-cyber-accent font-mono border border-cyber-accent/30 px-2 py-1 rounded text-sm">$30 - $50</span>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group glass-panel p-8 rounded-xl hover:bg-cyber-light transition-all duration-300 hover:-translate-y-2 border-t border-transparent hover:border-cyber-accent reveal">
+                    <div class="w-14 h-14 bg-blue-900/50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-cyber-accent group-hover:text-cyber-dark transition-colors">
+                        <i class="fas fa-network-wired text-2xl text-cyber-accent group-hover:text-cyber-dark"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Redes & WiFi</h3>
+                    <p class="text-gray-400 mb-4 text-sm">Instalación y seguridad de redes domésticas. Segmentación y optimización.</p>
+                    <span class="text-cyber-accent font-mono border border-cyber-accent/30 px-2 py-1 rounded text-sm">$30 - $50</span>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="group glass-panel p-8 rounded-xl hover:bg-cyber-light transition-all duration-300 hover:-translate-y-2 border-t border-transparent hover:border-cyber-accent reveal">
+                    <div class="w-14 h-14 bg-blue-900/50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-cyber-accent group-hover:text-cyber-dark transition-colors">
+                        <i class="fas fa-globe text-2xl text-cyber-accent group-hover:text-cyber-dark"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Desarrollo Web</h3>
+                    <p class="text-gray-400 mb-4 text-sm">Sitios web personalizados, portafolios y páginas para eventos especiales.</p>
+                    <span class="text-cyber-accent font-mono border border-cyber-accent/30 px-2 py-1 rounded text-sm">$60 - $150</span>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="group glass-panel p-8 rounded-xl hover:bg-cyber-light transition-all duration-300 hover:-translate-y-2 border-t border-transparent hover:border-cyber-accent reveal">
+                    <div class="w-14 h-14 bg-blue-900/50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-cyber-accent group-hover:text-cyber-dark transition-colors">
+                        <i class="fab fa-python text-2xl text-cyber-accent group-hover:text-cyber-dark"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Scripts Python</h3>
+                    <p class="text-gray-400 mb-4 text-sm">Automatización de tareas repetitivas y soluciones a medida.</p>
+                    <span class="text-cyber-accent font-mono border border-cyber-accent/30 px-2 py-1 rounded text-sm">$30 - $80</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PACKAGES -->
+    <section id="paquetes" class="py-20 bg-cyber-light/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white text-center mb-16 reveal">Paquetes Disponibles</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Básico -->
+                <div class="bg-cyber-dark p-8 rounded-2xl border border-gray-700 hover:border-gray-500 transition-colors reveal">
+                    <h3 class="text-xl font-bold text-white">Básico</h3>
+                    <div class="text-3xl font-bold text-cyber-accent my-4">$45</div>
+                    <ul class="space-y-3 mb-8 text-gray-400 text-sm">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Limpieza profunda</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Optimización básica</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Antivirus Instalado</li>
+                    </ul>
+                    <a href="#contacto" class="block w-full py-3 px-4 bg-gray-700 hover:bg-gray-600 text-center rounded text-white transition-colors">Elegir</a>
+                </div>
+
+                <!-- Profesional -->
+                <div class="bg-cyber-light p-8 rounded-2xl border-2 border-cyber-accent relative transform md:-translate-y-4 shadow-[0_0_30px_rgba(0,212,255,0.15)] reveal">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-cyber-accent text-cyber-dark text-xs font-bold px-3 py-1 rounded-full uppercase">Recomendado</div>
+                    <h3 class="text-xl font-bold text-white">Profesional</h3>
+                    <div class="text-3xl font-bold text-cyber-accent my-4">$80</div>
+                    <ul class="space-y-3 mb-8 text-gray-300 text-sm">
+                        <li class="flex items-center"><i class="fas fa-check text-cyber-accent mr-2"></i> Todo lo del Básico</li>
+                        <li class="flex items-center"><i class="fas fa-check text-cyber-accent mr-2"></i> Respaldo (50GB)</li>
+                        <li class="flex items-center"><i class="fas fa-check text-cyber-accent mr-2"></i> Seguridad Avanzada</li>
+                        <li class="flex items-center"><i class="fas fa-check text-cyber-accent mr-2"></i> Soporte 15 días</li>
+                    </ul>
+                    <a href="#contacto" class="block w-full py-3 px-4 bg-cyber-accent hover:bg-white text-cyber-dark font-bold text-center rounded transition-colors">Elegir</a>
+                </div>
+
+                <!-- Empresarial -->
+                <div class="bg-cyber-dark p-8 rounded-2xl border border-gray-700 hover:border-gray-500 transition-colors reveal">
+                    <h3 class="text-xl font-bold text-white">Empresarial</h3>
+                    <div class="text-3xl font-bold text-cyber-accent my-4">$150<span class="text-sm text-gray-500">/mes</span></div>
+                    <ul class="space-y-3 mb-8 text-gray-400 text-sm">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Soporte Ilimitado</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Mant. Mensual</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Atención Prioritaria</li>
+                    </ul>
+                    <a href="#contacto" class="block w-full py-3 px-4 bg-gray-700 hover:bg-gray-600 text-center rounded text-white transition-colors">Cotizar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO / EJEMPLOS -->
+    <section id="ejemplos" class="py-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl font-bold text-white mb-4">Portafolio Web</h2>
+                <p class="text-gray-400">Desarrollo de experiencias digitales únicas.</p>
+            </div>
+
+            <div class="glass-panel rounded-2xl overflow-hidden border border-cyber-purple/30 reveal">
+                <div class="grid md:grid-cols-2 gap-8 items-center p-8 md:p-12">
+                    <div class="space-y-6">
+                        <div class="inline-block px-3 py-1 bg-cyber-purple/20 text-cyber-purple border border-cyber-purple/50 rounded-full text-xs font-mono mb-2">
+                            PROYECTO DESTACADO
+                        </div>
+                        <h3 class="text-3xl font-bold text-white">Página Sorpresa Romántica</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            Sitio web interactivo de alto impacto visual creado para ocasiones especiales. Incluye sistema de autenticación simulado y cuenta regresiva.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 text-sm text-gray-300">
+                            <div class="flex items-center"><i class="fas fa-lock text-cyber-purple mr-2"></i> Sistema de Acceso</div>
+                            <div class="flex items-center"><i class="fas fa-video text-cyber-purple mr-2"></i> Video Integrado</div>
+                            <div class="flex items-center"><i class="fas fa-magic text-cyber-purple mr-2"></i> Efectos Confetti</div>
+                            <div class="flex items-center"><i class="fas fa-mobile-alt text-cyber-purple mr-2"></i> 100% Responsive</div>
+                        </div>
+                        <div class="pt-4 flex flex-wrap gap-4">
+                            <a href="https://demopaginaweb.netlify.app/" target="_blank" class="px-6 py-3 bg-cyber-purple hover:bg-purple-600 text-white font-bold rounded transition-colors shadow-[0_0_15px_rgba(124,58,237,0.4)]">
+                                <i class="fas fa-external-link-alt mr-2"></i> Ver Demo en Vivo
+                            </a>
+                            <button onclick="document.getElementById('tech-stack').classList.toggle('hidden')" class="px-6 py-3 border border-gray-600 hover:border-cyber-purple text-white rounded transition-colors">
+                                Detalles Técnicos
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="relative group">
+                        <!-- Preview Abstracto -->
+                        <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur opacity-40 group-hover:opacity-75 transition duration-500"></div>
+                        <div class="relative bg-cyber-dark p-8 rounded-lg border border-gray-700 flex flex-col items-center justify-center min-h-[300px] text-center">
+                            <i class="fas fa-gift text-6xl text-cyber-purple mb-4 animate-bounce"></i>
+                            <h4 class="text-xl font-bold text-white">Experiencia Interactiva</h4>
+                            <p class="text-sm text-gray-500 mt-2">HTML5 + CSS3 Animations + JS</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tech Stack Hidden -->
+                <div id="tech-stack" class="hidden border-t border-gray-700 bg-black/30 p-8">
+                    <h4 class="text-white font-mono mb-4 text-sm">STACK TECNOLÓGICO:</h4>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-3 py-1 bg-gray-800 rounded text-xs text-blue-400">HTML5 Semántico</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded text-xs text-pink-400">CSS3 Animations</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded text-xs text-yellow-400">JavaScript ES6</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded text-xs text-purple-400">Canvas Confetti</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded text-xs text-cyan-400">Tailwind CSS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: FAQ (PREGUNTAS FRECUENTES) -->
+    <section id="faq" class="py-20 bg-cyber-light/20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white text-center mb-10 reveal">Preguntas Frecuentes</h2>
+            
+            <div class="space-y-4">
+                <!-- Pregunta 1 -->
+                <details class="group glass-panel rounded-lg reveal cursor-pointer">
+                    <summary class="flex justify-between items-center p-6 font-medium text-white">
+                        <span>¿Realizan visitas a domicilio en San Salvador?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-cyber-accent"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-400 border-t border-gray-700/50 pt-4">
+                        Sí, cubrimos toda la zona metropolitana de San Salvador. Para zonas aledañas, aplicamos un pequeño recargo por transporte.
+                    </div>
+                </details>
+
+                <!-- Pregunta 2 -->
+                <details class="group glass-panel rounded-lg reveal cursor-pointer">
+                    <summary class="flex justify-between items-center p-6 font-medium text-white">
+                        <span>¿Mis datos están seguros durante la reparación?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-cyber-accent"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-400 border-t border-gray-700/50 pt-4">
+                        Absolutamente. Firmamos un acuerdo de confidencialidad si lo requieres. Como técnicos en ciberseguridad, la integridad de los datos es nuestra prioridad #1.
+                    </div>
+                </details>
+
+                <!-- Pregunta 3 -->
+                <details class="group glass-panel rounded-lg reveal cursor-pointer">
+                    <summary class="flex justify-between items-center p-6 font-medium text-white">
+                        <span>¿Qué incluye el paquete de "Limpieza Profunda"?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-cyber-accent"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-400 border-t border-gray-700/50 pt-4">
+                        Incluye limpieza física de componentes (ventiladores, placa, cambio de pasta térmica) y limpieza lógica (archivos temporales, registro, virus básicos).
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHILOSOPHY & VALUES -->
+    <section id="filosofia" class="py-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="glass-panel p-8 rounded-xl border-l-4 border-cyber-accent reveal">
+                    <h3 class="text-2xl font-bold text-white mb-4"><i class="fas fa-rocket text-cyber-accent mr-2"></i> Misión</h3>
+                    <p class="text-gray-400">Brindar soluciones de soporte técnico profesionales y accesibles, democratizando la ciberseguridad para individuos y pequeñas empresas en El Salvador.</p>
+                </div>
+                <div class="glass-panel p-8 rounded-xl border-l-4 border-cyber-secondary reveal">
+                    <h3 class="text-2xl font-bold text-white mb-4"><i class="fas fa-eye text-cyber-secondary mr-2"></i> Visión</h3>
+                    <p class="text-gray-400">Ser la referencia nacional en 2027 por excelencia técnica, convirtiéndonos en el escudo digital de confianza para nuestros clientes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contacto" class="py-20 bg-gradient-to-b from-cyber-dark to-black">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl font-bold text-white mb-4">Inicia tu Protocolo de Seguridad</h2>
+                <p class="text-gray-400">Completa el formulario y te responderemos en menos de 24 horas.</p>
+            </div>
+
+            <div class="glass-panel p-8 md:p-12 rounded-2xl shadow-2xl relative overflow-hidden reveal">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyber-accent via-purple-500 to-cyber-secondary"></div>
+
+                <!-- Iframe oculto para envío silencioso -->
+                <iframe name="hidden_iframe" id="hidden_iframe" class="hidden" onload="if(submitted) {mostrarMensajeExito();}"></iframe>
+
+                <form id="contactForm" 
+                      action="https://docs.google.com/forms/d/e/1FAIpQLSdYoefapwl6Sa4v9C3S4D5j2gCvliaxMBJKjRB8LtOu14uowg/formResponse" 
+                      method="POST" 
+                      target="hidden_iframe" 
+                      onsubmit="submitted=true;"
+                      class="space-y-6">
+                      
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Identidad (Nombre)</label>
+                            <input type="text" name="entry.1764812634" required class="w-full bg-cyber-dark border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyber-accent focus:ring-1 focus:ring-cyber-accent transition-colors" placeholder="Tu nombre">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Comms (Email)</label>
+                            <input type="email" name="entry.573503571" required class="w-full bg-cyber-dark border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyber-accent focus:ring-1 focus:ring-cyber-accent transition-colors" placeholder="email@ejemplo.com">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Móvil</label>
+                            <input type="tel" name="entry.842481777" required class="w-full bg-cyber-dark border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyber-accent focus:ring-1 focus:ring-cyber-accent transition-colors" placeholder="+503 ...">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Vector de Servicio</label>
+                            <select name="entry.201744744" required class="w-full bg-cyber-dark border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyber-accent transition-colors">
+                                <option value="" class="text-gray-500">Seleccionar...</option>
+                                <option value="Soporte Técnico Integral">Soporte Técnico Integral</option>
+                                <option value="Optimización de Sistemas">Optimización de Sistemas</option>
+                                <option value="Seguridad Informática">Seguridad Informática</option>
+                                <option value="Respaldo de Datos">Respaldo de Datos</option>
+                                <option value="Configuración de Redes">Configuración de Redes</option>
+                                <option value="Scripts Python">Scripts Python</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">Fecha Preferida</label>
+                        <input type="date" name="entry.1041342100" class="w-full bg-cyber-dark border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyber-accent focus:ring-1 focus:ring-cyber-accent transition-colors">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">Detalles del Incidente/Proyecto</label>
+                        <textarea name="entry.736995783" required rows="4" class="w-full bg-cyber-dark border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyber-accent focus:ring-1 focus:ring-cyber-accent transition-colors" placeholder="Describe brevemente lo que necesitas..."></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-gradient-to-r from-cyber-accent to-blue-600 text-white font-bold py-4 rounded-lg hover:shadow-[0_0_20px_rgba(0,212,255,0.4)] transition-all transform hover:-translate-y-1">
+                        <i class="fas fa-paper-plane mr-2"></i> Enviar Datos Encriptados
+                    </button>
+                </form>
+
+                <div id="formSuccess" class="hidden mt-6 bg-green-900/50 border border-green-500 text-green-200 p-4 rounded-lg text-center">
+                    <p class="font-bold"><i class="fas fa-check-circle mr-2"></i> Datos Recibidos</p>
+                    <p class="text-sm">Tus datos han llegado seguros. Te contactaremos pronto.</p>
+                </div>
+            </div>
+
+            <div class="mt-12 flex justify-center space-x-8">
+                <a href="https://wa.me/50360613425" class="flex items-center text-gray-400 hover:text-green-400 transition-colors">
+                    <i class="fab fa-whatsapp text-2xl mr-2"></i> WhatsApp
+                </a>
+                <a href="mailto:ciberseguridad.osvaldo@gmail.com" class="flex items-center text-gray-400 hover:text-red-400 transition-colors">
+                    <i class="fas fa-envelope text-2xl mr-2"></i> Email
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h3 class="text-2xl font-mono text-white mb-2">Cortez<span class="text-cyber-accent">CyberTech</span></h3>
+            <p class="text-gray-500 mb-6 text-sm">El Salvador © 2025. Todos los derechos reservados.</p>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="text-gray-600 hover:text-cyber-accent transition-colors"><i class="fab fa-facebook text-xl"></i></a>
+                <a href="#" class="text-gray-600 hover:text-cyber-accent transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                <a href="#" class="text-gray-600 hover:text-cyber-accent transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
+            </div>
+            <div class="text-xs text-gray-700 font-mono space-x-4">
+                <a href="#" class="hover:text-gray-400">Política de Privacidad</a>
+                <span>|</span>
+                <a href="#" class="hover:text-gray-400">Términos de Servicio</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Button -->
+    <a href="https://wa.me/50360613425?text=Hola,%20necesito%20ayuda%20con%20mi%20PC" 
+       target="_blank" rel="noopener noreferrer"
+       class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all hover:scale-110 z-50 animate-bounce">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <script>
+        let submitted = false;
+
+        // Mobile Menu Logic
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Form Success Logic
+        function mostrarMensajeExito() {
+            const form = document.getElementById('contactForm');
+            const successMsg = document.getElementById('formSuccess');
+            form.reset();
+            successMsg.classList.remove('hidden');
+            setTimeout(() => {
+                successMsg.classList.add('hidden');
+            }, 5000);
+            submitted = false;
+        }
+
+        // Terminal Typing Effect
+        const textElement = document.getElementById('typing-text');
+        const texts = ['Ciberseguridad', 'Soporte Técnico', 'Desarrollo Web', 'Consultoría IT'];
+        let count = 0;
+        let index = 0;
+        let currentText = '';
+        let letter = '';
+
+        (function type() {
+            if (count === texts.length) {
+                count = 0;
+            }
+            currentText = texts[count];
+            letter = currentText.slice(0, ++index);
+
+            textElement.textContent = letter;
+            if (letter.length === currentText.length) {
+                count++;
+                index = 0;
+                setTimeout(type, 2000); // Pause at end of word
+            } else {
+                setTimeout(type, 100); // Typing speed
+            }
+        }());
+
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const elementVisible = 150;
+
+            revealElements.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        // Trigger once on load
+        revealOnScroll();
+
+        // Navbar blur effect on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-cyber-dark/90');
+                navbar.classList.add('backdrop-blur-md');
+            } else {
+                navbar.classList.remove('bg-cyber-dark/90');
+                navbar.classList.remove('backdrop-blur-md');
+            }
+        });
+    </script>
+</body>
+</html>
